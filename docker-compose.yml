@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+
+  mysqldb:
+    image: mariadb
+    container_name: mysqldb
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: demodb
+    expose:
+      - 3306
+    ports:
+      - "33060:3306"
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
